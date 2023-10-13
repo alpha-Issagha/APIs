@@ -27,6 +27,10 @@ list_of_books = [
 @app.route('/api/books', methods=["GET","POST"])
 def books():
     print("Test la!!!")
-    return jsonify({"res": list_of_books})
+    if request.method == 'GET':
+        return jsonify({"res": list_of_books})
+    else:
+        return jsonify({"res": "post sent !!!"})
+
 app.debug = True
 app.run()
